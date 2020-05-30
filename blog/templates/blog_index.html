@@ -8,7 +8,7 @@
         <div class='container'>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ post.image.url }}" alt="" width="100%">
+                    <img src="{{ static post.image.url }}" alt="" width="100%">
                 </div>
                 <div class="col-md-8">
                     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
