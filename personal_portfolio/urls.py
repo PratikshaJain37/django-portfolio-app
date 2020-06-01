@@ -30,4 +30,4 @@ urlpatterns = [
     path("projects/", include("projects.urls")),
     path('blog/', include("blog.urls")),
     path('', include("about.urls")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

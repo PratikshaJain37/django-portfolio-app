@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+
 import dj_database_url
-import dotenv
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +32,7 @@ SECRET_KEY = 'cf8j8@9gw5yu(p3x$g6_7=kc%1+c$6@r9d0w3kf)v-6zvam&&t'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
+
 
 
 # Database
@@ -93,7 +93,7 @@ DATABASES = {
     }
 }
 
-DATABASES = {'default': dj_database_url.config()}
+
 
 
 
@@ -140,10 +140,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
-django_heroku.settings(locals())
 
-#del DATABASES['default']['OPTIONS']['sslmode']
