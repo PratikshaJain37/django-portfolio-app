@@ -18,9 +18,6 @@ import dotenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,10 +29,10 @@ SECRET_KEY = 'cf8j8@9gw5yu(p3x$g6_7=kc%1+c$6@r9d0w3kf)v-6zvam&&t'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['pratiksha-jain.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -91,12 +88,8 @@ WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '###',
-        'USER': '###',
-        'PASSWORD': '###',
-        'HOST': '###',
-        'PORT': '###',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -151,8 +144,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 django_heroku.settings(locals())
 
-del DATABASES['default']['OPTIONS']['sslmode']
+#del DATABASES['default']['OPTIONS']['sslmode']
